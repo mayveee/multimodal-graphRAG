@@ -15,6 +15,6 @@
 - link: <https://youtu.be/22JdyQS3_2s>
 
 ### 3주차 활동
-- 브레인스토밍 작성
+- 브레인스토밍 작성 <https://miro.com/app/board/uXjVIK8WnLU=/?share_link_id=198890634243>
 - PR : <https://github.com/mayveee/multimodal-graphRAG/pull/7>
 - link: <https://youtu.be/AwlVZPdWlGY>
