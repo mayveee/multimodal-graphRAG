@@ -23,3 +23,8 @@
 - 문제정의서 작성
 - PR : <https://github.com/mayveee/multimodal-graphRAG/pull/8>
 - link: <https://youtu.be/W-I72FEnOV0>
+
+### 5주차
+- 유스케이스 명세서 작성
+- PR : <https://github.com/mayveee/multimodal-graphRAG/pull/9>
+- link : <https://youtu.be/7POsYO9LGEk>
