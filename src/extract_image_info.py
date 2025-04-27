@@ -9,13 +9,7 @@ def extract_image_info(image_bytes: bytes) -> dict:
 
     # 정보 2 라벨링
     
-    return {
-        "DateTime": metadata.get("DateTime"),
-        "시": metadata.get("시"),
-        "구": metadata.get("구"),
-        "동": metadata.get("동"),
-        "로": metadata.get("로")
-    }
+    return metadata
 
 def extract_metadata(image_bytes: bytes) -> dict:
     """
