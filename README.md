@@ -29,7 +29,7 @@
 - PR : <https://github.com/mayveee/multimodal-graphRAG/pull/9>
 - link : <https://youtu.be/7POsYO9LGEk>
 
-### 6~7주차
+### 7~8주차
 - 시퀀스다이어그램 작성
 - PR : <https://github.com/mayveee/multimodal-graphRAG/pull/10>
 - link : <https://youtu.be/ysw3bbm5KKw>
