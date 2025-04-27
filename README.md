@@ -24,7 +24,12 @@
 - PR : <https://github.com/mayveee/multimodal-graphRAG/pull/8>
 - link: <https://youtu.be/W-I72FEnOV0>
 
-### 5주차
+### 5~6주차
 - 유스케이스 명세서 작성
 - PR : <https://github.com/mayveee/multimodal-graphRAG/pull/9>
 - link : <https://youtu.be/7POsYO9LGEk>
+
+### 6~7주차
+- 시퀀스다이어그램 작성
+- PR : <https://github.com/mayveee/multimodal-graphRAG/pull/10>
+- link : <https://youtu.be/ysw3bbm5KKw>
