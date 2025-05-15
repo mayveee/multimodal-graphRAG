@@ -36,5 +36,5 @@
 
 ### task7
 - 테스트 계획서 작성
-- PR : <>
-- link : <>
+- PR : <https://github.com/mayveee/multimodal-graphRAG/pull/13>
+- link : <https://youtu.be/zCoo64D8_7s>
