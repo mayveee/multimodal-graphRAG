@@ -5,6 +5,16 @@ from api.geocoding_api import call_reverse_geocoding_api
 def extract_metadata(image_bytes: bytes) -> dict:
     """
     exifread를 사용하여 이미지 bytes에서 메타데이터 추출
+    Returns:
+        metadata = {
+            "DateTime": None,
+            "Latitude": None,
+            "Longitude": None,
+            "시": None,
+            "구": None,
+            "동": None,
+            "로": None
+        }
     """
     metadata = {
         "DateTime": None,

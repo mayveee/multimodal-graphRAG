@@ -21,8 +21,11 @@ def call_llm(prompt: str) -> str:
 
 def generate_create_query(info) -> str:
     """
-    llm 호출하여 CREATE query 생성
-    input: {imageId, }
+    LLM 호출하여 CREATE 쿼리 생성
+    Args:
+        /// info type 정의
+    Returns:
+        list[dict]: 쿼리 결과 레코드 목록
     """
     prompt = f"다음 정보를 기반으로 Cypher CREATE 쿼리를 생성해줘:\n{info}"
     return call_llm(prompt)
