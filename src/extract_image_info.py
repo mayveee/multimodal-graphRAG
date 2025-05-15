@@ -1,5 +1,5 @@
-import extract_metadata
-import extract_objects
+from extract_metadata import extract_metadata
+from extract_objects import extract_objects
 
 def extract_image_info(image_bytes: bytes) -> dict:
     """

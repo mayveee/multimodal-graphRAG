@@ -32,6 +32,7 @@ def extract_objects(image_bytes: bytes) -> dict:
 
     prompt = """
     다음 이미지를 보고 이미지 내에 존재하는 주요 객체들과 관계를 JSON 형식으로 정리해주세요.
+    사진의 의도와 관련없는 너무 세세한 객체는 제외해주세요.
     형식은 다음과 같습니다:
 
     {
