@@ -34,6 +34,7 @@ def generate_create_query(info) -> str:
         3. `Time` 노드를 따로 만들고, `datetime` 속성만 포함해.
         4. `Location` 노드를 따로 만들고, 나머지 장소 관련 속성들을 넣어.
         5. `Image` 노드는 `Time`과 `TAKEN_AT_TIME`, `Location`과 `TAKEN_AT_LOCATION` 관계로 연결해.
+        6. `Image` 노드는 각 객체 노드들과 contains 관계로 연결해.
 
         {info_json_str}
         """
