@@ -19,6 +19,5 @@ def run_query(query: str, parameters: dict = None) -> tuple[list[dict], object]:
         summary = result.consume()
         return result, summary
 
-
 def close_driver():
     driver.close()

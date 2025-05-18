@@ -36,6 +36,7 @@ def generate_create_query(info) -> str:
         5. `Image` 노드는 `Time`과 `TAKEN_AT_TIME`, `Location`과 `TAKEN_AT_LOCATION` 관계로 연결해.
         6. `Image` 노드는 각 객체 노드들과 contains 관계로 연결해.
 
+
         {info_json_str}
         """
     return call_llm(prompt)

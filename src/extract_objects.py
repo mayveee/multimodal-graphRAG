@@ -29,6 +29,7 @@ def extract_objects(image_bytes: bytes) -> dict:
         }
     """
     base64_image = base64.b64encode(image_bytes).decode("utf-8")
+
     system_prompt= """
     당신은 사진에서 찍은 의도를 파악해 주요 객체와 관계들을 찾아주는 도우미입니다.
     찾은 객체와 관계들은 나중에 사진을 찾는데 쓰입니다.
@@ -62,6 +63,7 @@ def extract_objects(image_bytes: bytes) -> dict:
         model="gpt-4.1",
         messages=[
             {"role": "system", "content": system_prompt},
+
             {"role": "user", "content": [
                 {"type": "text", "text": prompt},
                 {"type": "image_url", "image_url": {
