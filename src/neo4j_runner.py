@@ -18,5 +18,6 @@ def run_query(query: str, parameters: dict = None) -> tuple[list[dict], object]:
     with GraphDatabase.driver(uri=NEO4J_URI, auth=(NEO4J_USERNAME, NEO4J_PASSWORD)) as driver:
         with driver.session() as session:
             result = session.run(query, parameters or {})
+            records = [record.data() for record in result]
             summary = result.consume()
-            return result, summary
+            return records, summary
