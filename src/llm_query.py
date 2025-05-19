@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def call_llm(prompt: str) -> str:

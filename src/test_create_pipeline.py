@@ -27,8 +27,6 @@ def test():
     except Exception as e:
         print("❌ 쿼리 실행 중 오류 발생:", e)
 
-    db.close_driver()
-
 
 if __name__ == "__main__":
     test()
