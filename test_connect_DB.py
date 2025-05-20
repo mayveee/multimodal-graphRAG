@@ -1,5 +1,4 @@
 from neo4j import GraphDatabase
-import certifi
 
 uri = "neo4j+ssc://11891092.databases.neo4j.io"
 auth = ("neo4j", "tLP_I6Zd36gLpVpUz8jtHSyCHYvJfzMBRI7VekMTbfQ")

@@ -36,7 +36,7 @@ def extract_objects(image_bytes: bytes) -> dict:
     """
     prompt = """
     다음 이미지를 보고 이미지 내에 존재하는 주요 객체들과 관계를 JSON 형식으로 정리해주세요.
-    최소 단위의 개별 사물 말고 의미 있는 범주 수준에서 5개 이하의 주요 객체들을 뽑아주세요.
+    최소 단위의 개별 사물 말고 의미 있는 범주 수준에서 7개 이하의 주요 객체들을 뽑아주세요.
     형식은 다음과 같습니다:
 
     {
@@ -56,7 +56,7 @@ def extract_objects(image_bytes: bytes) -> dict:
     ]
     }
     json만 응답에 포함시켜주세요.
-    가능한 경우 건물, 간판, 상호, 사람, 브랜드 등도 포함해주세요.
+    가능한 경우 정확한 음식 이름, 주요 랜드마크, 사람 등도 포함해주세요.
     영어로 응답을 주세요.
     """
     response = client.chat.completions.create(

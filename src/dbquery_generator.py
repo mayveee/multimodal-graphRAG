@@ -13,8 +13,7 @@ def call_llm(prompt: str) -> str:
             {"role": "system", "content": "당신은 Cypher 쿼리를 생성하는 Neo4j 전문가입니다. 바로 실행 가능한 문자열 Cypher 쿼리만 리턴해주세요."},
             {"role": "user", "content": prompt}
         ],
-        temperature=0.2,
-        max_tokens=1000,
+        temperature=0.2
     )
 
     return response.choices[0].message.content
@@ -47,16 +46,18 @@ def generate_match_query(userQuery: str) -> str:
     prompt = f"""\
         다음 유저의 자연어 질의에 답하기 위한 Cypher 쿼리를를 생성해줘
         조건:
-        - 조건에 해당하는 Image 노드를 중심으로 관련된 모든 서브 노드 (Object, Time, Location) 및 관계를 포함해서 전체 서브그래프를 반환하는 쿼리를 생성해주세요.
-        - 단, Object와 Object 사이에 관계가 있을 경우, 해당 관계도 포함해주세요.
-        - label 필터링은 하지 말고, 조건에 맞는 Image를 먼저 찾고 관련 노드를 모두 가져오도록 해주세요.
-        - obj간 관계를 임의로 만들지 말고 와일드카드로 전부 가져와
+        - 조건에 해당하는 Image 노드를 중심으로 관련된 모든 서브 노드 (Object, Time, Location) 및 관계를 포함해서 전체 서브그래프를 반환하는 쿼리를 생성해 줘.
+        - 단, Object와 Object 사이에 관계가 있을 경우, 해당 관계도 포함해줘.
+        - label 필터링은 하지 말고, 조건에 맞는 Image를 먼저 찾고 관련 노드를 모두 가져와.
+        - obj간 관계를 임의로 만들지 말고 와일드카드로 전부 가져오 되 collect를 해줘
+        - 만약 object의 label을 비교하는 경우 contains로 비교해줘.
+        - 최종 리턴은 img, time, location, obj, relationship 형식으로 해줘.
 
         neo4j DB 구조는 다음과 같아
         Image 노드: image_id-이미지 고유 id
-        Object 노드(이미지에 포함된 객체): label-영어로된 이름
-        Time 노드: date-2025-03-23 같은 양식, time-12:36:42 같은 양식
-        Location 노드: 지역 구분 단위인 시, 구, 동, 로 속성 포함
+        obj:Object 노드(이미지에 포함된 객체): label-영어로된 이름
+        t:Time 노드: date-2025-03-23 같은 양식, time-12:36:42 같은 양식
+        loc:Location 노드: 지역 구분 단위인 시, 구, 동, 로 속성 포함
         (Image)-[:contains]->(Object) 관계 반드시 있음.
         (Image)-[:TAKEN_AT_TIME]->(Time) 관계 있음.
         (Image)-[:TAKEN_AT_LOCATION]->(Location) 관계 있음.

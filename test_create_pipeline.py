@@ -1,6 +1,7 @@
 from src.image_info_extractor import extract_image_info
-from src.query_generator import generate_create_query
+from src.dbquery_generator import generate_create_query
 import src.neo4j_runner as db
+
 
 def test_create():
     # 테스트 파일 읽기

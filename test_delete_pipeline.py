@@ -1,6 +1,5 @@
 import src.neo4j_runner as db
-from src.query_generator import generate_delete_query
-
+from src.dbquery_generator import generate_delete_query
 
 def test_delete():
     # 이미지 ID 임시 생성 (나중에는 받는걸로)
@@ -14,7 +13,7 @@ def test_delete():
     
     # delete 쿼리 실행
     result, summary = db.run_query(query, params)
-    print("🗑 삭제된 노드 수:", summary.counters.nodes_deleted)
+    print("삭제된 노드 수:", summary.counters.nodes_deleted)
 
 if __name__ == "__main__":
     test_delete()
