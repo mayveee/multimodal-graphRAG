@@ -59,6 +59,8 @@ def chat(user_query : str, session_id : str, data: dict | None = None) -> str:
     )
     return response.content
 
+
+# 안씀
 def generate_answer(user_query: str, data: dict | None = None) -> str:
     """
     자연어 쿼리를 바탕으로 LLM이 자연어 응답 생성(생성 정보 있으면 파라미터로)
