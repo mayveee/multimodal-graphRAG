@@ -10,20 +10,14 @@ def extract_metadata(image_bytes: bytes) -> dict:
             "DateTime": None,
             "Latitude": None,
             "Longitude": None,
-            "시": None,
-            "구": None,
-            "동": None,
-            "로": None
+            "address": None,
         }
     """
     metadata = {
         "DateTime": None,
         "Latitude": None,
         "Longitude": None,
-        "시": None,
-        "구": None,
-        "동": None,
-        "로": None
+        "address": None,
     }
     f = io.BytesIO(image_bytes)
     tags = exifread.process_file(f, details=False)
@@ -57,8 +51,8 @@ def extract_metadata(image_bytes: bytes) -> dict:
 
     # GPS를 실제 주소로 변환
     if lat is not None and lon is not None:
-        location_info = _reverse_geocode(lat, lon)
-        metadata.update(location_info)
+        address_info = _reverse_geocode(lat, lon)
+        metadata.update(address_info)
 
     return metadata
 
@@ -74,21 +68,14 @@ def _reverse_geocode(lat, lon)-> dict:
     위도, 경도를 받아서 행정구역 주소를 반환
     """
     address_info = {
-        "시": None,
-        "구": None,
-        "동": None,
-        "로": None
+        "address": None
     }
+
     if(lat is None and lon is None):
         return address_info
     
     api_data = call_reverse_geocoding_api(lat, lon)
     if api_data:
-        address = api_data.get('address', {})
-        address_info.update({
-            "시": address.get('city') or address.get('town') or address.get('village'),
-            "구": address.get('borough') or address.get('county'),
-            "동": address.get('quarter') or address.get('suburb'),
-            "로": address.get('road')
-        })
+        address_info["address"] = api_data.get('display_name')
+    
     return address_info

@@ -12,7 +12,7 @@ def test_create():
     imageinfo = extract_image_info(image_bytes)
     print("이미지 정보:", imageinfo)
 
-    # 이미지 ID 임시 생성 및 추가(나중에는 받는걸로)
+    # 이미지 ID 임시 생성 및 추가 필수(나중에는 받는걸로)
     image_id = 'img1234'
     imageinfo["image_id"] = image_id
 
