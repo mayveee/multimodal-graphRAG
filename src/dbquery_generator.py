@@ -50,6 +50,7 @@ def generate_match_query(userQuery: str) -> str:
         - 조건에 맞는 Image 노드를 먼저 매칭한다.
         - 조건에 해당하는 Image 노드를 중심으로 관련된 모든 서브 노드 (Object, Time, Location) 및 관계를 포함해서 전체 서브그래프를 반환하는 쿼리를 생성해 줘.
         - 단, Object와 Object 사이에 관계가 있을 경우, 해당 관계도 포함해줘.
+
         - obj간 관계를 임의로 만들지 말고 와일드카드로 전부 가져오 되 collect를 해줘
         - 만약 object의 label을 비교하는 경우 contains로 비교해줘.
         - 최종 리턴은 img, time, location, obj, relationship 형식으로 해줘.
