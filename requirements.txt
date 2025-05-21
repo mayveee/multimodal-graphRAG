@@ -3,3 +3,6 @@ exifread
 requests
 neo4j
 python-dotenv
+langchain
+langchain-community
+langchain-openai
