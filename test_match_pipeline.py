@@ -22,5 +22,5 @@ def test_match(user_query:str):
     print('최종 응답:', answer)
 
 if __name__ == "__main__":
-    user_query = '대전에서 먹은 음식은?'
+    user_query = '저번주 주말에 먹은 음식은?'
     test_match(user_query)

@@ -5,7 +5,7 @@ import src.neo4j_runner as db
 
 def test_create():
     # 테스트 파일 읽기
-    with open("images/test1.JPEG", "rb") as f:
+    with open("images/test3.JPEG", "rb") as f:
         image_bytes = f.read()
 
     # 이미지 정보 추출
