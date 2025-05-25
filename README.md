@@ -3,6 +3,23 @@
 - 졸업 프로젝트
 - 김보배, 허정우
 
+## 실행
+### 가상환경
+```
+python -m venv .venv
+```
+### 가상환경 활성
+```
+.venv\Scripts\activate
+```
+### 라이브러리 설치
+```
+pip install -r requirements.txt
+```
+### FASTAPI 서버 실행
+```
+uvicorn main:app --reload
+```
 ---
 ### task1
 - 연구 개요서 작성
