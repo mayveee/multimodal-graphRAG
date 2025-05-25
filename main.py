@@ -5,6 +5,7 @@ from routes import match, upload
 from fastapi.staticfiles import StaticFiles
 from routes import list_images
 
+
 app = FastAPI()
 
 app.add_middleware(
@@ -14,6 +15,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.mount("/images", StaticFiles(directory="images"), name="images")
 app.include_router(upload.router)
