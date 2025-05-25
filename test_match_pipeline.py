@@ -13,7 +13,7 @@ def test_match(user_query:str):
         # match query 실행
         records, summary = db.run_query(match_query)
         print('records: ', records)
-        # 질의, 결과로 응답 생성
+        # 질의, 결과로 응답 생성 TODO
         answer = chat(user_query=user_query, session_id="1234", data=records)
     else:
         # RAG 필요없으면 그냥 응답
