@@ -31,4 +31,4 @@ async def match_message(input: MessageInput):
         # RAG 필요없으면 그냥 응답
         answer = chat(user_message, "1234")
 
-    return JSONResponse(content={"reply": answer})
+    return JSONResponse(content=answer)

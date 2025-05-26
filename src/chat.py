@@ -7,6 +7,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, Huma
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from src.utils.chat_memory import get_memory, print_memory
+import json
 
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
 
@@ -16,6 +17,12 @@ system_prompt = """
 조건2: 질의는 주어지고 응답에 필요한 배경정보가 있다면 제공될거야.
 조건3: 응답에 필요한 배경 정보가 없다면 정보나 관련 이미지를 찾을 수 없다는 식으로 응답해줘!
 조건4: 정보를 이용하되 응답에 필요한 부분만 적절히 가공해서 대답해줘!
+조건5: images에는 응답에 사용된 이미지의 id를 넣어주고 없으면 빈배열로 둬둬
+조건6: 아래 형식을 지켜 코드블록 없이 json형태로 응답해줘
+{{
+  "reply": "여기에 자연어 응답 작성",
+  "images": ["img_식별자1", "img_식별자2"]
+}}
 """
 llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
 
@@ -47,7 +54,6 @@ def chat(user_query : str, session_id : str, data: dict | None = None) -> str:
     if data is None:
         user_prompt = f"[질문]\n{user_query}"    
     else:
-        import json
         context_str = json.dumps(data, ensure_ascii=False, indent=2)
         user_prompt = f"[질문]\n{user_query}\n\n[배경 정보]\n{context_str}"
     
@@ -57,7 +63,12 @@ def chat(user_query : str, session_id : str, data: dict | None = None) -> str:
         {"messages": user_prompt},
         config={"configurable": {"session_id": session_id}}
     )
-    return response.content
+
+    print("응답 결과:", response.content)
+    try:
+        return json.loads(response.content)
+    except json.JSONDecodeError:
+        return {"reply": response.content, "images": []}
 
 
 # 안씀
