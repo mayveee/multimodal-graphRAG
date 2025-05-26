@@ -24,7 +24,6 @@ async def match_message(input: MessageInput):
         print('결과 쿼리: ', match_query)
         # match query 실행
         records, summary = db.run_query(match_query)
-        print('records: ', records)
         # 질의, 결과로 응답 생성
         answer = chat(user_query=user_message, session_id="1234", data=records)
     else:
