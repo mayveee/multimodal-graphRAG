@@ -20,7 +20,7 @@ async def get_chat_history(session_id: str):
     try:
         memory = get_memory(session_id)
         raw_messages = memory.messages
-
+        print(raw_messages)
         messages = []
         for msg in raw_messages:
             if isinstance(msg, HumanMessage):
