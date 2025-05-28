@@ -55,3 +55,8 @@ uvicorn main:app --reload
 - 테스트 계획서 작성
 - PR : <https://github.com/mayveee/multimodal-graphRAG/pull/13>
 - link : <https://youtu.be/zCoo64D8_7s>
+
+### task8
+- 테스트 결과 작성/ 최종 발표
+- PR : <https://github.com/mayveee/multimodal-graphRAG/pull/26>
+- link : <https://youtu.be/RmfWWgwxE7s>
