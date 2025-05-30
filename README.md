@@ -1,7 +1,7 @@
 # 사용자 이미지 기반 AI 챗봇
 - 이미지 데이터를 처리하고 사용자의 자연어 질의에 답하기 위해 Graph형태의 RAG사용
 - 졸업 프로젝트
-- 김보배, 허정우
+- 김보배, 허정우  
 웹 : <https://github.com/mayveee/chatbotWeb>
 
 ## 실행
