@@ -1,3 +1,4 @@
+from datetime import date
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -19,6 +20,7 @@ system_prompt = """
 조건4: 정보를 이용하되 응답에 필요한 부분만 적절히 가공해서 대답해줘!
 조건5: images에는 응답에 사용된 이미지의 id를 넣어주고 없으면 빈배열로 둬둬
 조건6: 아래 형식을 지켜 코드블록 없이 json형태로 응답해줘
+오늘은 {today}야
 {{
   "reply": "여기에 자연어 응답 작성",
   "images": ["img_식별자1", "img_식별자2"]
@@ -60,7 +62,7 @@ def chat(user_query : str, session_id : str, data: dict | None = None) -> str:
     print('생성된 프롬프트: ', user_prompt)
 
     response = chatbot.invoke(
-        {"messages": user_prompt},
+        {"messages": user_prompt, "today": str(date.today())},
         config={"configurable": {"session_id": session_id}}
     )
 
